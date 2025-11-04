@@ -1,11 +1,13 @@
-
+import { useState } from "react";
 export function CreateCard( props ) {
     
     const { texto, idTarea, completada, prioridad, creacion, modificacion } = props
-
     let color_card = ""
 
-    console.log(props)
+    const handleClickBlock = (event) => {
+        console.log("ID task:", event.target.dataset.idtarea);
+        
+    }
 
     switch (prioridad)
     {
@@ -30,8 +32,8 @@ export function CreateCard( props ) {
                     <label for="chkCompletada">Completada</label>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center">
-                    <p className="col-9 border bg-light text-dark">{texto}</p>
+                <div className="d-flex justify-content-center" onClick={handleClickBlock}>
+                    <p className="col-9 border bg-light text-dark" data-idtarea={idTarea}>{texto}</p>
                 </div>
                 <div className ="d-flex flex-row justify-content-between">
                     <div>Creación: {creacion} </div>
