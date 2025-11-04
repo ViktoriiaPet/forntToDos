@@ -28,12 +28,6 @@ export const db = [{
 
 export function CreateListaDeTareas(props) {
   /* Aquí luego añadimos el fetch */
-  console.log("CreateListaDeTareas", props)
-  //{db.map((tarea) => (
-        //console.log(tarea)
-     // ))}
-
-
   return (
     <div className="col-3 bg-dark border-5">
         <div className="d-flex flex-row justify-content-end">

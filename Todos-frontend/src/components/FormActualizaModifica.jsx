@@ -6,12 +6,7 @@ export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue, 
     setTexto(tarea.texto || "")
     }, [tarea.texto])
 
-    console.log(tarea.texto)
-
-
-    
     const cambiaTexto = (e) => {
-        console.log(e.target.value)
         setTexto(e.target.value)
     }
 

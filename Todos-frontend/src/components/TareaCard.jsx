@@ -4,10 +4,9 @@ export function CreateCard(props) {
     const { texto, idTarea, completada, prioridad, creacion, modificacion } = props
     let color_card = ""
 
-    const handleClickBlock = (event) => {
+    const handleClickBlock = () => {
         props.func({ texto, idTarea, completada, prioridad, creacion, modificacion })
         props.visibleFunc(true)
-        console.log("props.visibleFunc(true)", props.visibleFunc)
     }
 
 
