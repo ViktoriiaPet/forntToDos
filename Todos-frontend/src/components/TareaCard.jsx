@@ -1,4 +1,4 @@
-import { FormActualizaModifica } from "./FormActualizaModifica"
+
 export function CreateCard(props) {
     console.log(props)
     const { texto, idTarea, completada, prioridad, creacion, modificacion } = props

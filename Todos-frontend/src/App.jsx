@@ -5,7 +5,7 @@ import { FormActualizaModifica } from './components/FormActualizaModifica'
 
 function App() {
   const [tarea, setTarea] = useState({})
-  const [isVisible, setVisible] = useState(true)
+  const [isVisible, setVisible] = useState(false)
   return (
     <>
       <div className='d-flex flex-row'>
