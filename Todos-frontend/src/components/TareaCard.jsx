@@ -1,13 +1,15 @@
-import { useState } from "react";
-export function CreateCard( props ) {
-    
+import { FormActualizaModifica } from "./FormActualizaModifica"
+export function CreateCard(props) {
+    console.log(props)
     const { texto, idTarea, completada, prioridad, creacion, modificacion } = props
     let color_card = ""
 
     const handleClickBlock = (event) => {
-        console.log("ID task:", event.target.dataset.idtarea);
-        
+        props.func({ texto, idTarea, completada, prioridad, creacion, modificacion })
+        props.visibleFunc(true)
+        console.log("props.visibleFunc(true)", props.visibleFunc)
     }
+
 
     switch (prioridad)
     {

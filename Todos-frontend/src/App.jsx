@@ -4,13 +4,13 @@ import { CreateListaDeTareas } from './components/ListaDeTareas'
 import { FormActualizaModifica } from './components/FormActualizaModifica'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [tarea, setTarea] = useState({})
+  const [isVisible, setVisible] = useState(true)
   return (
     <>
       <div className='d-flex flex-row'>
-        <CreateListaDeTareas/>
-        <FormActualizaModifica texto="Pepe"/>
+        <CreateListaDeTareas func={setTarea} visibleFunc = {setVisible}/>
+        <FormActualizaModifica tarea={tarea} func = {setTarea} visibleFunc = {setVisible} visibleValue = {isVisible} />
       </div>
     </>
   )

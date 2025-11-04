@@ -9,7 +9,7 @@ const db = [{
               prioridad: "alta"
             },
             {
-              texto: "estudiar",
+              texto: "limpar",
               id: 2,
               creacion: "1.11.2025",
               modificacion: "3.11.2025",
@@ -17,7 +17,7 @@ const db = [{
               prioridad: "media"
             },
             {
-              texto: "estudiar",
+              texto: "leer",
               id: 3,
               creacion: "1.11.2025",
               modificacion: "3.11.2025",
@@ -26,11 +26,12 @@ const db = [{
             }
 ]
 
-export function CreateListaDeTareas() {
+export function CreateListaDeTareas(props) {
   /* Aquí luego añadimos el fetch */
-  {db.map((tarea) => (
-        console.log(tarea)
-      ))}
+  console.log("CreateListaDeTareas", props)
+  //{db.map((tarea) => (
+        //console.log(tarea)
+     // ))}
 
 
   return (
@@ -39,8 +40,8 @@ export function CreateListaDeTareas() {
           <button type="button" className="btn btn-secondary">Filtro</button>
           <button type="button" className="btn btn-secondary">+</button>
         </div>
-          {db.map( tarea => (
-            <CreateCard idTarea={tarea.id} texto={tarea.texto} modificacion={tarea.modificacion} creacion = {tarea.creacion} completada={tarea.completada} prioridad={tarea.prioridad} />
+          {db.map( (tarea,key) => (
+            <CreateCard key = {key} idTarea={tarea.id} texto={tarea.texto} modificacion={tarea.modificacion} creacion={tarea.creacion} completada={tarea.completada} prioridad={tarea.prioridad} func={props.func} visibleFunc = {props.visibleFunc}/>
           ))}
     </div>
   );
