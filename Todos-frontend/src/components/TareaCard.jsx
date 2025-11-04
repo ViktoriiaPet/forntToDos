@@ -1,17 +1,47 @@
 
-export function CreateCard({ nombre }) {
+export function CreateCard( props ) {
     
-    const { texto, id, completada, prioridad, creacion, modificacion } = nombre
+    const { texto, idTarea, completada, prioridad, creacion, modificacion } = props
+
+    let color_card = ""
+
+    console.log(props)
+
+    switch (prioridad)
+    {
+        case 'alta':
+            color_card = "bg-danger text-light";
+            break;
+        case 'media':
+            color_card = "bg-warning";
+            break;
+        case 'baja':
+            color_card = "bg-success text-light";
+            break;
+    }
+
     return (
-       <div>
-            <div>
-                <span>{texto}</span>
-            </div>
-            <div>
-                <p>{id}</p>
-                <p>{creacion}</p>
-                <p>{modificacion}</p>
-                <input type="checkbox" name="" id="completada" />
+        <div>
+            <div className={"col-12 border border-light rounded " + color_card}>
+                <div className="d-flex flex-row justify-content-between">
+                    <p>ID: {idTarea} </p>
+                    <div>
+                    <input id="chkCompletada" type="checkbox" checked={completada} readOnly="true"/>
+                    <label for="chkCompletada">Completada</label>
+                    </div>
+                </div>
+                <div className="d-flex justify-content-center">
+                    <p className="col-9 border bg-light text-dark">{texto}</p>
+                </div>
+                <div className ="d-flex flex-row justify-content-between">
+                    <div>Creación: {creacion} </div>
+                    <div> Modificación: {modificacion} </div>
+                </div>
+                {/* <p>Prioridad: {prioridad} </p> */}
+                <div className="d-flex d-row justify-content-end">
+                    <button type="button" id="btnBorrar" className="btn btn-primary">Borrar</button>
+                    <button type="button" id="btnModificar" className="btn btn-primary">Modificar</button>
+                </div>
             </div>
         </div>
     )
