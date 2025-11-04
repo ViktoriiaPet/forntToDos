@@ -1,6 +1,6 @@
 import { CreateCard } from "./TareaCard";
 
-const db = [{
+export const db = [{
               texto: "estudiar",
               id: 1,
               creacion: "1.11.2025",
