@@ -61,9 +61,9 @@ export function ModalAltaTarea({ tareas, onAddTarea }) {
               ></button>
             </div>
 
-            <div className="modal-body">
-              <form>
-                <div className="d-flex flex-column bg-info p-2 rounded">
+            <div className="modal-body" >
+              <form style = {{backgroundColor : 'silver'}}>
+                <div className="d-flex flex-column p-2 rounded">
                   <label htmlFor="texto">Tarea:</label>
                   <textarea
                     id="texto"
@@ -103,10 +103,10 @@ export function ModalAltaTarea({ tareas, onAddTarea }) {
             </div>
 
             <div className="modal-footer">
-              <button className="btn btn-secondary" data-bs-dismiss="modal">
+              <button className="btn btn-light" data-bs-dismiss="modal">
                 Cerrar
               </button>
-              <button className="btn btn-primary" onClick={handleSubmit}>
+              <button className="btn btn-light" onClick={handleSubmit}>
                 Guardar
               </button>
             </div>

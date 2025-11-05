@@ -55,7 +55,7 @@ export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue, 
     visibleValue && (
       <div className="d-flex flex-column col-3">
         <form>
-          <div className="d-flex flex-column bg-info p-2 rounded">
+          <div className="d-flex flex-column p-2 rounded" style={{backgroundColor:'silver'}}>
             <label htmlFor="texto">Tarea: </label>
             <textarea
               id="texto"
@@ -95,10 +95,10 @@ export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue, 
             <p>Modificación: {tarea.modificacion}</p>
 
             <div className="d-flex justify-content-end gap-2 mt-3">
-              <button type="button" className="btn btn-primary" onClick={handleGuardar}>
+              <button type="button" className="btn btn-light" onClick={handleGuardar}>
                 Guardar
               </button>
-              <button type="button" className="btn btn-secondary" onClick={handleSalir}>
+              <button type="button" className="btn btn-light" onClick={handleSalir}>
                 Salir
               </button>
             </div>
