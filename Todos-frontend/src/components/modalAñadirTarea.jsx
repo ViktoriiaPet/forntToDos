@@ -3,21 +3,39 @@ import { useState } from "react";
 
 export function ModalAltaTarea() {
   const [texto, setTexto] = useState("");
+  const [prioridad, setPrioridad] = useState("media");
+  const [completada, setCompletada] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     let numeroMayor = 0;
-    console.log(db.length);
-    for (let i = 0; i < db.length; i++) {
-      if (db[i].id > numeroMayor) {
-        console.log(db[i].id, db[i].texto);
-        numeroMayor = db[i].id;
-      }
-    }
-    return numeroMayor;
-  };
+     for (let i = 0; i < db.length; i++) {
+         if (db[i].id > numeroMayor) {
+             console.log(db[i].id, db[i].texto);
+              numeroMayor = db[i].id;
+             }
+             }
 
-  const cambiaTexto = (e) => {
-    setTexto(e.target.value);
+
+    
+
+    const nuevaTarea = {
+      id: numeroMayor + 1,
+      texto,
+      prioridad,
+      completada,
+      creacion: new Date().toLocaleString(),
+      modificacion: new Date().toLocaleString(),
+    };
+
+    db.push(nuevaTarea);
+
+    console.log(db);
+
+    setTexto("");
+    setPrioridad("media");
+    setCompletada(false);
   };
 
   return (
@@ -45,19 +63,24 @@ export function ModalAltaTarea() {
 
             <div className="modal-body">
               <form>
-                <div className="d-flex flex-column bg-info">
-                  <label htmlFor="texto">Tarea: </label>
+                <div className="d-flex flex-column bg-info p-2 rounded">
+                  <label htmlFor="texto">Tarea:</label>
                   <textarea
                     id="texto"
-                    type="text"
-                    placeholder="Tarea"
-                    onChange={cambiaTexto}
+                    placeholder="Describe tu tarea..."
+                    value={texto}
+                    onChange={(e) => setTexto(e.target.value)}
                   ></textarea>
-                  <div className="d-flex flex-row mt-2">
+
+                  <div className="d-flex flex-row mt-2 align-items-center">
                     <label htmlFor="prioridad" className="me-2">
                       Prioridad:
                     </label>
-                    <select id="prioridad">
+                    <select
+                      id="prioridad"
+                      value={prioridad}
+                      onChange={(e) => setPrioridad(e.target.value)}
+                    >
                       <option value="alta">Alta</option>
                       <option value="media">Media</option>
                       <option value="baja">Baja</option>
@@ -68,7 +91,12 @@ export function ModalAltaTarea() {
                     <label htmlFor="completada" className="me-2">
                       Completada:
                     </label>
-                    <input id="completada" type="checkbox" />
+                    <input
+                      id="completada"
+                      type="checkbox"
+                      checked={completada}
+                      onChange={(e) => setCompletada(e.target.checked)}
+                    />
                   </div>
                 </div>
               </form>

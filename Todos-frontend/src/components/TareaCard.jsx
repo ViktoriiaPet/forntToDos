@@ -29,8 +29,8 @@ export function CreateCard(props) {
                 <div className="d-flex flex-row justify-content-between">
                     <p>ID: {idTarea} </p>
                     <div>
-                    <input id="chkCompletada" type="checkbox" checked={completada} readOnly="true"/>
-                    <label for="chkCompletada">Completada</label>
+                    <input id="chkCompletada" type="checkbox" checked={completada} readOnly={true}/>
+                    <label htmlFor="chkCompletada">Completada</label>
                     </div>
                 </div>
                 <div className="d-flex justify-content-center" onClick={handleClickBlock}>
