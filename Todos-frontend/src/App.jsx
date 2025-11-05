@@ -34,15 +34,14 @@ function App() {
   const [isVisible, setVisible] = useState(false)
 
   const addTarea = (nuevaTarea) => {
-    setTareas((prev) => [...prev, nuevaTarea]);
+    setTareas((prev) => [nuevaTarea, ...prev]);
   };
 
   const editTarea = (editadaTarea) => {
     setTareas((prev) =>
   prev.map((t) => (t.id === editadaTarea.id ? editadaTarea : t))
 );
-
-  }
+}
 
   const handleDeleteTarea = (id) => {
     const nuevasTareas = [];
