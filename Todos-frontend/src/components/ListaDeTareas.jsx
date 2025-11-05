@@ -28,7 +28,7 @@ export const db = [{
 ]
 
 export function CreateListaDeTareas(props) {
-  /* Aquí luego añadimos el fetch */
+  console.log("onAddTarea={props.onAddTarea} tareas={props.tareas}", props)
   return (
     <>
     <div className="col-3 bg-dark border-5">
@@ -36,11 +36,11 @@ export function CreateListaDeTareas(props) {
           <button type="button" className="btn btn-secondary">Filtro</button>
           <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
         </div>
-          {db.map( (tarea,key) => (
+          {props.tareas.map( (tarea,key) => (
             <CreateCard key = {key} idTarea={tarea.id} texto={tarea.texto} modificacion={tarea.modificacion} creacion={tarea.creacion} completada={tarea.completada} prioridad={tarea.prioridad} func={props.func} visibleFunc = {props.visibleFunc}/>
           ))}
       </div>
-       <ModalAltaTarea />
+       <ModalAltaTarea onAddTarea={props.onAddTarea} tareas={props.tareas}/>
     </>
   );
 }
