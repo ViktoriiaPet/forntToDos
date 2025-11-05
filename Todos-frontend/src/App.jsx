@@ -32,6 +32,9 @@ function App() {
   ]);
   const [tarea, setTarea] = useState({})
   const [isVisible, setVisible] = useState(false)
+  const [filtroCompletada, setFiltroCompletada] = useState("")
+  const [filtroPrioridad, setFiltroPrioridad] = useState("")
+
 
   const addTarea = (nuevaTarea) => {
     setTareas((prev) => [nuevaTarea, ...prev]);
@@ -41,7 +44,8 @@ function App() {
     setTareas((prev) =>
   prev.map((t) => (t.id === editadaTarea.id ? editadaTarea : t))
 );
-}
+  }
+
 
   const handleDeleteTarea = (id) => {
     const nuevasTareas = [];
@@ -53,10 +57,21 @@ function App() {
   setTareas(nuevasTareas);
   }
 
+  const tareasFiltradas = tareas.filter(t => {
+  if (filtroCompletada !== "") {
+    return filtroCompletada === "true" ? t.completada : !t.completada;
+  }
+
+  if (filtroPrioridad !== "") {
+    return t.prioridad === filtroPrioridad;
+  }
+  return true;
+});
+
   return (
     <>
       <div className='d-flex flex-row'>
-        <CreateListaDeTareas func={setTarea} visibleFunc = {setVisible} onAddTarea={addTarea} tareas ={tareas} onDelete={handleDeleteTarea}/>
+        <CreateListaDeTareas func={setTarea} visibleFunc={setVisible} onAddTarea={addTarea} tareas={tareasFiltradas} onDelete={handleDeleteTarea} setFiltroCompletada={setFiltroCompletada} setFiltroPrioridad={setFiltroPrioridad} />
         <FormActualizaModifica tarea={tarea} func = {setTarea} visibleFunc = {setVisible} visibleValue = {isVisible} onEditTarea={editTarea} />
       </div>
     </>
