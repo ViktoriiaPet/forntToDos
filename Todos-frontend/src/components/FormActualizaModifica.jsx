@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue }) {
+export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue,  onEditTarea}) {
   const [texto, setTexto] = useState(tarea.texto || "");
   const [prioridad, setPrioridad] = useState(tarea.prioridad || "");
   const [completada, setCompletada] = useState(tarea.completada || false);
@@ -33,6 +33,23 @@ export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue }
     visibleFunc(false);
     func({});
   };
+
+  const handleGuardar = (e) => {
+    e.preventDefault();
+      const editadaTarea = {
+      id: tarea.idTarea,
+      texto,
+      prioridad,
+      completada,
+      creacion: tarea.creacion,
+      modificacion: new Date().toLocaleString(),
+    };
+
+    onEditTarea(editadaTarea);
+    handleSalir();
+
+    console.log(editadaTarea)
+  }
 
   return (
     visibleValue && (
@@ -78,7 +95,7 @@ export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue }
             <p>Modificación: {tarea.modificacion}</p>
 
             <div className="d-flex justify-content-end gap-2 mt-3">
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary" onClick={handleGuardar}>
                 Guardar
               </button>
               <button type="button" className="btn btn-secondary" onClick={handleSalir}>
