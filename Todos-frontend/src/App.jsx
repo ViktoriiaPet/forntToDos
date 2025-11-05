@@ -37,10 +37,20 @@ function App() {
     setTareas((prev) => [...prev, nuevaTarea]);
   };
 
+  const handleDeleteTarea = (id) => {
+    const nuevasTareas = [];
+  for (const tarea of tareas) {
+    if (tarea.id !== id) {
+      nuevasTareas.push(tarea);
+    }
+  }
+  setTareas(nuevasTareas);
+  }
+
   return (
     <>
       <div className='d-flex flex-row'>
-        <CreateListaDeTareas func={setTarea} visibleFunc = {setVisible} onAddTarea={addTarea} tareas ={tareas} />
+        <CreateListaDeTareas func={setTarea} visibleFunc = {setVisible} onAddTarea={addTarea} tareas ={tareas} onDelete={handleDeleteTarea}/>
         <FormActualizaModifica tarea={tarea} func = {setTarea} visibleFunc = {setVisible} visibleValue = {isVisible} />
       </div>
     </>

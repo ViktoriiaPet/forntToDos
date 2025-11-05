@@ -1,6 +1,5 @@
-import { db } from "./ListaDeTareas";
 import { useState } from "react";
-import { Modal } from "bootstrap";
+
 
 export function ModalAltaTarea({ tareas, onAddTarea }) {
   const [texto, setTexto] = useState("");

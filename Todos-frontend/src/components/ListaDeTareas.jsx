@@ -1,31 +1,7 @@
 import { useState } from "react";
 import { CreateCard } from "./TareaCard";
 import { ModalAltaTarea } from "./modalAñadirTarea";
-export const db = [{
-              texto: "estudiar",
-              id: 1,
-              creacion: "1.11.2025",
-              modificacion: "3.11.2025",
-              completada: true,
-              prioridad: "alta"
-            },
-            {
-              texto: "limpar",
-              id: 2,
-              creacion: "1.11.2025",
-              modificacion: "3.11.2025",
-              completada: true,
-              prioridad: "media"
-            },
-            {
-              texto: "leer",
-              id: 3,
-              creacion: "1.11.2025",
-              modificacion: "3.11.2025",
-              completada: false,
-              prioridad: "baja"
-            }
-]
+
 
 export function CreateListaDeTareas(props) {
   return (
@@ -36,7 +12,7 @@ export function CreateListaDeTareas(props) {
           <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
         </div>
           {props.tareas.map( (tarea,key) => (
-            <CreateCard key = {key} idTarea={tarea.id} texto={tarea.texto} modificacion={tarea.modificacion} creacion={tarea.creacion} completada={tarea.completada} prioridad={tarea.prioridad} func={props.func} visibleFunc = {props.visibleFunc}/>
+            <CreateCard key = {key} idTarea={tarea.id} texto={tarea.texto} modificacion={tarea.modificacion} creacion={tarea.creacion} completada={tarea.completada} prioridad={tarea.prioridad} func={props.func} visibleFunc = {props.visibleFunc} onDelete = {props.onDelete}/>
           ))}
       </div>
        <ModalAltaTarea onAddTarea={props.onAddTarea} tareas={props.tareas}/>
