@@ -46,7 +46,7 @@ export function CreateCard(props) {
 
                 <div className="d-flex d-row justify-content-end">
                     <button type="button" id="btnBorrar" className="btn btn-primary" onClick={handleBorrar}>Borrar</button>
-                    <button type="button" id="btnModificar" className="btn btn-primary">Modificar</button>
+                    <button type="button" id="btnModificar" className="btn btn-primary" onClick={handleClickBlock}>Modificar</button>
                 </div>
             </div>
         </div>
