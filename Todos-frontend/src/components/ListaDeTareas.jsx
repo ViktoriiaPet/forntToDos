@@ -28,7 +28,6 @@ export const db = [{
 ]
 
 export function CreateListaDeTareas(props) {
-  console.log("onAddTarea={props.onAddTarea} tareas={props.tareas}", props)
   return (
     <>
     <div className="col-3 bg-dark border-5">

@@ -6,14 +6,12 @@ export function ModalAltaTarea({ tareas, onAddTarea }) {
   const [texto, setTexto] = useState("");
   const [prioridad, setPrioridad] = useState("media");
   const [completada, setCompletada] = useState(false);
-    console.log("{ tareas, onAddTarea }", tareas, onAddTarea)
   const handleSubmit = (e) => {
     e.preventDefault();
 
     let numeroMayor = 0;
      for (let i = 0; i < tareas.length; i++) {
          if (tareas[i].id > numeroMayor) {
-             console.log(tareas[i].id, tareas[i].texto);
               numeroMayor = tareas[i].id;
              }
              }
@@ -31,8 +29,6 @@ export function ModalAltaTarea({ tareas, onAddTarea }) {
     };
 
     onAddTarea(nuevaTarea);
-
-    console.log(tareas);
 
     setTexto("");
     setPrioridad("media");
