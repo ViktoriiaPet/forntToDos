@@ -12,10 +12,11 @@ export function CreateListaDeTareas(props) {
   }
 
   return (
-    <div>
-    <div className="bg-dark border-5 p-4">
+    <div className="d-flex justify-content-center">
+      
+      <div className="bg-dark border-5 p-4">
         <div className="d-flex flex-row justify-content-end gap-2 p-2">
-          <div className="d-flex flex-column ">
+          <div className="d-flex flex-column">
           <button type="button" className="btn btn-secondary " onClick={handleFiltroClick}>Filtro</button>
             {showFiltro && <Filtraccion setFiltroCompletada={props.setFiltroCompletada} setFiltroPrioridad={props.setFiltroPrioridad} />}
           </div>

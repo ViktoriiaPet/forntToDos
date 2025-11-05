@@ -71,8 +71,10 @@ function App() {
   return (
     <>
       <div className='d-flex flex-row'>
-        <CreateListaDeTareas func={setTarea} visibleFunc={setVisible} onAddTarea={addTarea} tareas={tareasFiltradas} onDelete={handleDeleteTarea} setFiltroCompletada={setFiltroCompletada} setFiltroPrioridad={setFiltroPrioridad} />
-        <FormActualizaModifica tarea={tarea} func = {setTarea} visibleFunc = {setVisible} visibleValue = {isVisible} onEditTarea={editTarea} />
+        <div className='col-4'></div>
+          <CreateListaDeTareas func={setTarea} visibleFunc={setVisible} onAddTarea={addTarea} tareas=
+            {tareasFiltradas} onDelete={handleDeleteTarea} setFiltroCompletada={setFiltroCompletada} setFiltroPrioridad={setFiltroPrioridad} />
+          <FormActualizaModifica tarea={tarea} func={setTarea} visibleFunc={setVisible} visibleValue={isVisible} onEditTarea={editTarea} />
       </div>
     </>
   )
