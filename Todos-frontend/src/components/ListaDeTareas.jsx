@@ -13,9 +13,12 @@ export function CreateListaDeTareas(props) {
 
   return (
     <>
-    <div className="col-3 bg-dark border-5">
-        <div className="d-flex flex-row justify-content-end">
-          <button type="button" className="btn btn-secondary" onClick={handleFiltroClick}>Filtro</button>
+    <div className="col-3 bg-dark border-5 p-4">
+        <div className="d-flex flex-row justify-content-end gap-2 p-2">
+          <div className="d-flex flex-column ">
+          <button type="button" className="btn btn-secondary " onClick={handleFiltroClick}>Filtro</button>
+          {showFiltro && <Filtraccion />}
+          </div>
           <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
         </div>
           {props.tareas.map( (tarea,key) => (
@@ -23,7 +26,7 @@ export function CreateListaDeTareas(props) {
           ))}
       </div>
       <ModalAltaTarea onAddTarea={props.onAddTarea} tareas={props.tareas} />
-      {showFiltro && <Filtraccion />}
+      
     </>
   );
 }

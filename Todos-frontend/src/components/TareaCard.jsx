@@ -28,7 +28,7 @@ export function CreateCard(props) {
 
     return (
         <div>
-            <div className={"col-12 border border-light rounded " + color_card}>
+            <div className={"m-2 p-1 col-12 border border-light rounded " + color_card}>
                 <div className="d-flex flex-row justify-content-between">
                     <p>ID: {idTarea} </p>
                     <div>
@@ -44,7 +44,7 @@ export function CreateCard(props) {
                     <div> Modificación: {modificacion} </div>
                 </div>
 
-                <div className="d-flex d-row justify-content-end">
+                <div className="d-flex gap-2 d-row justify-content-end">
                     <button type="button" id="btnBorrar" className="btn btn-primary" onClick={handleBorrar}>Borrar</button>
                     <button type="button" id="btnModificar" className="btn btn-primary" onClick={handleClickBlock}>Modificar</button>
                 </div>
