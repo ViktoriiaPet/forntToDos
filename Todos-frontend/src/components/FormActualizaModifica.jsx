@@ -1,16 +1,33 @@
 import { useState, useEffect } from "react";
 
-export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue, modoDeTarea }) {
+export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue }) {
   const [texto, setTexto] = useState(tarea.texto || "");
+  const [prioridad, setPrioridad] = useState(tarea.prioridad || "");
+  const [completada, setCompletada] = useState(tarea.completada || false);
 
   useEffect(() => {
     setTexto(tarea.texto || "");
   }, [tarea.texto]);
 
+  useEffect(() => {
+    setPrioridad(tarea.prioridad || "");
+  }, [tarea.prioridad]);
+
+    useEffect(() => {
+    setCompletada(tarea.completada || "");
+  }, [tarea.completada]);
+
   const cambiaTexto = (e) => {
     setTexto(e.target.value);
     func({ ...tarea, texto: e.target.value });
   };
+  const cambiaPrioridad = (e) => {
+    setPrioridad(e.target.value)
+  }
+
+  const cambiaCompletada = (e) => {
+    setCompletada(e.target.checked)
+  }
 
   const handleSalir = () => {
     visibleFunc(false);
@@ -36,8 +53,8 @@ export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue, 
               </label>
               <select
                 id="prioridad"
-                value={tarea.prioridad || "media"}
-                onChange={(e) => func({ ...tarea, prioridad: e.target.value })}
+                value={prioridad}
+                onChange={cambiaPrioridad}
               >
                 <option value="alta">Alta</option>
                 <option value="media">Media</option>
@@ -52,8 +69,8 @@ export function FormActualizaModifica({ tarea, func, visibleFunc, visibleValue, 
               <input
                 id="completada"
                 type="checkbox"
-                checked={!!tarea.completada}
-                onChange={(e) => func({ ...tarea, completada: e.target.checked })}
+                checked={completada}
+                onChange={cambiaCompletada}
               />
             </div>
 
